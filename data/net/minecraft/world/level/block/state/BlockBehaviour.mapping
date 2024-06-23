@@ -477,8 +477,6 @@ CLASS net/minecraft/world/level/block/state/BlockBehaviour
 		METHOD isViewBlocking (Lnet/minecraft/world/level/BlockGetter;Lnet/minecraft/core/BlockPos;)Z
 			ARG 1 level
 			ARG 2 pos
-		METHOD lambda$getOffset$0 (Lnet/minecraft/world/level/BlockGetter;Lnet/minecraft/core/BlockPos;Lnet/minecraft/world/level/block/state/BlockBehaviour$OffsetFunction;)Lnet/minecraft/world/phys/Vec3;
-			ARG 3 offsetFunction
 		METHOD mirror (Lnet/minecraft/world/level/block/Mirror;)Lnet/minecraft/world/level/block/state/BlockState;
 			COMMENT @return the blockstate mirrored in the given way. If inapplicable, returns itself.
 			ARG 1 mirror

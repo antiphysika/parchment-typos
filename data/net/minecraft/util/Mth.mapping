@@ -154,6 +154,11 @@ CLASS net/minecraft/util/Mth
 		ARG 2 z
 	METHOD getSeed (Lnet/minecraft/core/Vec3i;)J
 		ARG 0 pos
+	METHOD hsvToArgb (FFFI)I
+		ARG 0 hue
+		ARG 1 saturation
+		ARG 2 value
+		ARG 3 alpha
 	METHOD hsvToRgb (FFF)I
 		ARG 0 hue
 		ARG 1 saturation
@@ -190,6 +195,10 @@ CLASS net/minecraft/util/Mth
 		ARG 0 xDistance
 		ARG 2 yDistance
 		ARG 4 zDistance
+	METHOD lengthSquared (FFF)F
+		ARG 0 xDistance
+		ARG 1 yDistance
+		ARG 2 zDistance
 	METHOD lerp (DDD)D
 		COMMENT Method for linear interpolation of doubles
 		ARG 0 delta

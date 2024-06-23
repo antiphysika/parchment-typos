@@ -1,9 +1,11 @@
 CLASS net/minecraft/client/renderer/chunk/SectionRenderDispatcher
-	METHOD <init> (Lnet/minecraft/client/multiplayer/ClientLevel;Lnet/minecraft/client/renderer/LevelRenderer;Ljava/util/concurrent/Executor;Lnet/minecraft/client/renderer/RenderBuffers;)V
+	METHOD <init> (Lnet/minecraft/client/multiplayer/ClientLevel;Lnet/minecraft/client/renderer/LevelRenderer;Ljava/util/concurrent/Executor;Lnet/minecraft/client/renderer/RenderBuffers;Lnet/minecraft/client/renderer/block/BlockRenderDispatcher;Lnet/minecraft/client/renderer/blockentity/BlockEntityRenderDispatcher;)V
 		ARG 1 level
 		ARG 2 renderer
 		ARG 3 executor
-		ARG 4 renderBuffers
+		ARG 4 buffers
+		ARG 5 blockRenderer
+		ARG 6 blockEntityRenderer
 	METHOD rebuildSectionSync (Lnet/minecraft/client/renderer/chunk/SectionRenderDispatcher$RenderSection;Lnet/minecraft/client/renderer/chunk/RenderRegionCache;)V
 		ARG 1 section
 		ARG 2 regionCache
@@ -13,8 +15,11 @@ CLASS net/minecraft/client/renderer/chunk/SectionRenderDispatcher
 		ARG 1 camera
 	METHOD setLevel (Lnet/minecraft/client/multiplayer/ClientLevel;)V
 		ARG 1 level
-	METHOD uploadSectionLayer (Lcom/mojang/blaze3d/vertex/BufferBuilder$RenderedBuffer;Lcom/mojang/blaze3d/vertex/VertexBuffer;)Ljava/util/concurrent/CompletableFuture;
-		ARG 1 renderedBuffer
+	METHOD uploadSectionIndexBuffer (Lcom/mojang/blaze3d/vertex/ByteBufferBuilder$Result;Lcom/mojang/blaze3d/vertex/VertexBuffer;)Ljava/util/concurrent/CompletableFuture;
+		ARG 1 result
+		ARG 2 vertexBuffer
+	METHOD uploadSectionLayer (Lcom/mojang/blaze3d/vertex/MeshData;Lcom/mojang/blaze3d/vertex/VertexBuffer;)Ljava/util/concurrent/CompletableFuture;
+		ARG 1 meshData
 		ARG 2 vertexBuffer
 	CLASS RenderSection
 		METHOD <init> (Lnet/minecraft/client/renderer/chunk/SectionRenderDispatcher;IIII)V
@@ -22,8 +27,6 @@ CLASS net/minecraft/client/renderer/chunk/SectionRenderDispatcher
 			ARG 3 originX
 			ARG 4 originY
 			ARG 5 originZ
-		METHOD beginLayer (Lcom/mojang/blaze3d/vertex/BufferBuilder;)V
-			ARG 1 bufferBuilder
 		METHOD compileSync (Lnet/minecraft/client/renderer/chunk/RenderRegionCache;)V
 			ARG 1 regionCache
 		METHOD createCompileTask (Lnet/minecraft/client/renderer/chunk/RenderRegionCache;)Lnet/minecraft/client/renderer/chunk/SectionRenderDispatcher$RenderSection$CompileTask;
@@ -44,6 +47,8 @@ CLASS net/minecraft/client/renderer/chunk/SectionRenderDispatcher
 		METHOD resortTransparency (Lnet/minecraft/client/renderer/RenderType;Lnet/minecraft/client/renderer/chunk/SectionRenderDispatcher;)Z
 			ARG 1 renderType
 			ARG 2 sectionRenderDispatcher
+		METHOD setCompiled (Lnet/minecraft/client/renderer/chunk/SectionRenderDispatcher$CompiledSection;)V
+			ARG 1 compiled
 		METHOD setDirty (Z)V
 			ARG 1 playerChanged
 		METHOD setOrigin (III)V
@@ -54,6 +59,7 @@ CLASS net/minecraft/client/renderer/chunk/SectionRenderDispatcher
 			ARG 1 blockEntities
 		CLASS CompileTask
 			METHOD <init> (Lnet/minecraft/client/renderer/chunk/SectionRenderDispatcher$RenderSection;DZ)V
+				ARG 1 renderSection
 				ARG 2 distAtCreation
 				ARG 4 isHighPriority
 			METHOD compareTo (Lnet/minecraft/client/renderer/chunk/SectionRenderDispatcher$RenderSection$CompileTask;)I
@@ -65,17 +71,6 @@ CLASS net/minecraft/client/renderer/chunk/SectionRenderDispatcher
 				ARG 2 distAtCreation
 				ARG 4 region
 				ARG 5 isHighPriority
-			METHOD compile (FFFLnet/minecraft/client/renderer/SectionBufferBuilderPack;)Lnet/minecraft/client/renderer/chunk/SectionRenderDispatcher$RenderSection$RebuildTask$CompileResults;
-				ARG 1 x
-				ARG 2 y
-				ARG 3 z
-				ARG 4 sectionBufferBuilderPack
-			METHOD handleBlockEntity (Lnet/minecraft/client/renderer/chunk/SectionRenderDispatcher$RenderSection$RebuildTask$CompileResults;Lnet/minecraft/world/level/block/entity/BlockEntity;)V
-				ARG 1 compileResults
-				ARG 2 blockEntity
-			METHOD lambda$doTask$0 (Ljava/util/List;Lnet/minecraft/client/renderer/chunk/SectionRenderDispatcher$CompiledSection;Lnet/minecraft/client/renderer/RenderType;Lcom/mojang/blaze3d/vertex/BufferBuilder$RenderedBuffer;)V
-				ARG 3 renderType
-				ARG 4 renderedBuffer
 			METHOD lambda$doTask$1 (Lnet/minecraft/client/renderer/chunk/SectionRenderDispatcher$CompiledSection;Ljava/util/List;Ljava/lang/Throwable;)Lnet/minecraft/client/renderer/chunk/SectionRenderDispatcher$SectionTaskResult;
 				ARG 3 exception
 		CLASS ResortTransparencyTask

@@ -1,10 +1,6 @@
 CLASS net/minecraft/world/entity/npc/VillagerTrades
 	METHOD commonBooks (I)Lnet/minecraft/world/entity/npc/VillagerTrades$ItemListing;
 		ARG 0 villagerXp
-	METHOD enchant (Lnet/minecraft/world/item/Item;Lnet/minecraft/world/item/enchantment/Enchantment;I)Lnet/minecraft/world/item/ItemStack;
-		ARG 0 item
-		ARG 1 enchantment
-		ARG 2 level
 	METHOD lambda$static$0 (Ljava/util/HashMap;)V
 		ARG 0 map
 	METHOD potion (Lnet/minecraft/core/Holder;)Lnet/minecraft/world/item/ItemStack;
@@ -53,6 +49,14 @@ CLASS net/minecraft/world/entity/npc/VillagerTrades
 			ARG 4 maxUses
 			ARG 5 villagerXp
 			ARG 6 priceMultiplier
+		METHOD <init> (Lnet/minecraft/world/item/Item;IIIIFLnet/minecraft/resources/ResourceKey;)V
+			ARG 1 item
+			ARG 2 emeraldCost
+			ARG 3 numberOfItems
+			ARG 4 maxUses
+			ARG 5 villagerXp
+			ARG 6 priceMultiplier
+			ARG 7 enchantmentProvider
 		METHOD <init> (Lnet/minecraft/world/item/ItemStack;IIII)V
 			ARG 1 itemStack
 			ARG 2 emeraldCost
@@ -66,6 +70,14 @@ CLASS net/minecraft/world/entity/npc/VillagerTrades
 			ARG 4 maxUses
 			ARG 5 villagerXp
 			ARG 6 priceMultiplier
+		METHOD <init> (Lnet/minecraft/world/item/ItemStack;IIIIFLjava/util/Optional;)V
+			ARG 1 itemStack
+			ARG 2 emeraldCost
+			ARG 3 numberOfItems
+			ARG 4 maxUses
+			ARG 5 villagerXp
+			ARG 6 priceMultiplier
+			ARG 7 enchantmentProvider
 		METHOD <init> (Lnet/minecraft/world/level/block/Block;IIII)V
 			ARG 1 block
 			ARG 2 emeraldCost
@@ -90,19 +102,14 @@ CLASS net/minecraft/world/entity/npc/VillagerTrades
 		METHOD getRandomDye (Lnet/minecraft/util/RandomSource;)Lnet/minecraft/world/item/DyeItem;
 			ARG 0 random
 	CLASS EnchantBookForEmeralds
-		METHOD <init> (I)V
-			ARG 1 villagerXp
-		METHOD <init> (III[Lnet/minecraft/world/item/enchantment/Enchantment;)V
+		METHOD <init> (IIILnet/minecraft/tags/TagKey;)V
 			ARG 1 villagerXp
 			ARG 2 minLevel
 			ARG 3 maxLevel
 			ARG 4 tradeableEnchantments
-		METHOD <init> (I[Lnet/minecraft/world/item/enchantment/Enchantment;)V
+		METHOD <init> (ILnet/minecraft/tags/TagKey;)V
 			ARG 1 villagerXp
 			ARG 2 tradeableEnchantments
-		METHOD getEnchantment (Lnet/minecraft/util/RandomSource;Lnet/minecraft/world/flag/FeatureFlagSet;)Lnet/minecraft/world/item/enchantment/Enchantment;
-			ARG 1 random
-			ARG 2 enabledFeatures
 	CLASS TreasureMapForEmeralds
 		METHOD <init> (ILnet/minecraft/tags/TagKey;Ljava/lang/String;Lnet/minecraft/core/Holder;II)V
 			ARG 1 emeraldCost
@@ -112,13 +119,14 @@ CLASS net/minecraft/world/entity/npc/VillagerTrades
 			ARG 5 maxUses
 			ARG 6 villagerXp
 	CLASS ItemsAndEmeraldsToItems
-		METHOD <init> (Lnet/minecraft/world/item/trading/ItemCost;ILnet/minecraft/world/item/ItemStack;IIF)V
+		METHOD <init> (Lnet/minecraft/world/item/trading/ItemCost;ILnet/minecraft/world/item/ItemStack;IIFLjava/util/Optional;)V
 			ARG 1 fromItem
 			ARG 2 emeraldCost
 			ARG 3 toItem
 			ARG 4 maxUses
 			ARG 5 villagerXp
 			ARG 6 priceMultiplier
+			ARG 7 enchantmentProvider
 		METHOD <init> (Lnet/minecraft/world/level/ItemLike;IILnet/minecraft/world/item/Item;IIIF)V
 			ARG 1 fromItem
 			ARG 2 fromItemCount
@@ -137,6 +145,16 @@ CLASS net/minecraft/world/entity/npc/VillagerTrades
 			ARG 6 maxUses
 			ARG 7 villagerXp
 			ARG 8 priceMultiplier
+		METHOD <init> (Lnet/minecraft/world/level/ItemLike;IILnet/minecraft/world/level/ItemLike;IIIFLnet/minecraft/resources/ResourceKey;)V
+			ARG 1 fromItem
+			ARG 2 fromItemAmount
+			ARG 3 emeraldCost
+			ARG 4 toItem
+			ARG 5 toItemCount
+			ARG 6 maxUses
+			ARG 7 villagerXp
+			ARG 8 priceMultiplier
+			ARG 9 enchantmentProvider
 	CLASS EnchantedItemForEmeralds
 		METHOD <init> (Lnet/minecraft/world/item/Item;III)V
 			ARG 1 item

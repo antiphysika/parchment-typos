@@ -4,7 +4,7 @@ CLASS net/minecraft/world/item/enchantment/ItemEnchantments
 		ARG 2 showInTooltip
 	METHOD equals (Ljava/lang/Object;)Z
 		ARG 1 other
-	METHOD getLevel (Lnet/minecraft/world/item/enchantment/Enchantment;)I
+	METHOD getLevel (Lnet/minecraft/core/Holder;)I
 		ARG 1 enchantment
 	METHOD getTagOrEmpty (Lnet/minecraft/core/HolderLookup$Provider;Lnet/minecraft/resources/ResourceKey;Lnet/minecraft/tags/TagKey;)Lnet/minecraft/core/HolderSet;
 		ARG 0 registries
@@ -17,13 +17,13 @@ CLASS net/minecraft/world/item/enchantment/ItemEnchantments
 	CLASS Mutable
 		METHOD <init> (Lnet/minecraft/world/item/enchantment/ItemEnchantments;)V
 			ARG 1 enchantments
-		METHOD getLevel (Lnet/minecraft/world/item/enchantment/Enchantment;)I
+		METHOD getLevel (Lnet/minecraft/core/Holder;)I
 			ARG 1 enchantment
 		METHOD removeIf (Ljava/util/function/Predicate;)V
 			ARG 1 predicate
-		METHOD set (Lnet/minecraft/world/item/enchantment/Enchantment;I)V
+		METHOD set (Lnet/minecraft/core/Holder;I)V
 			ARG 1 enchantment
 			ARG 2 level
-		METHOD upgrade (Lnet/minecraft/world/item/enchantment/Enchantment;I)V
+		METHOD upgrade (Lnet/minecraft/core/Holder;I)V
 			ARG 1 enchantment
 			ARG 2 level

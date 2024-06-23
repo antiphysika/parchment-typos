@@ -15,8 +15,6 @@ CLASS net/minecraft/world/entity/animal/Fox
 		ARG 2 spawnType
 		ARG 3 pos
 		ARG 4 random
-	METHOD dropAllDeathLoot (Lnet/minecraft/world/damagesource/DamageSource;)V
-		ARG 1 damageSource
 	METHOD dropItemStack (Lnet/minecraft/world/item/ItemStack;)V
 		ARG 1 stack
 	METHOD getCrouchAmount (F)F

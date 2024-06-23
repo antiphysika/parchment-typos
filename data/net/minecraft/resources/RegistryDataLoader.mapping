@@ -41,8 +41,6 @@ CLASS net/minecraft/resources/RegistryDataLoader
 		ARG 5 registrationInfo
 	METHOD logErrors (Ljava/util/Map;)V
 		ARG 0 errors
-	METHOD registryDirPath (Lnet/minecraft/resources/ResourceLocation;)Ljava/lang/String;
-		ARG 0 location
 	CLASS Loader
 		METHOD loadFromNetwork (Ljava/util/Map;Lnet/minecraft/server/packs/resources/ResourceProvider;Lnet/minecraft/resources/RegistryOps$RegistryInfoLookup;)V
 			ARG 1 elements
@@ -52,6 +50,9 @@ CLASS net/minecraft/resources/RegistryDataLoader
 			ARG 1 resouceManager
 			ARG 2 registryInfoLookup
 	CLASS RegistryData
+		METHOD <init> (Lnet/minecraft/resources/ResourceKey;Lcom/mojang/serialization/Codec;)V
+			ARG 1 key
+			ARG 2 elementCodec
 		METHOD create (Lcom/mojang/serialization/Lifecycle;Ljava/util/Map;)Lnet/minecraft/resources/RegistryDataLoader$Loader;
 			ARG 1 registryLifecycle
 			ARG 2 loadingErrors

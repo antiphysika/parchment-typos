@@ -20,9 +20,10 @@ CLASS net/minecraft/world/item/Item
 		ARG 1 stack
 		ARG 2 level
 		ARG 3 livingEntity
-	METHOD getAttackDamageBonus (Lnet/minecraft/world/entity/player/Player;F)F
-		ARG 1 player
-		ARG 2 baseAttackDamage
+	METHOD getAttackDamageBonus (Lnet/minecraft/world/entity/Entity;FLnet/minecraft/world/damagesource/DamageSource;)F
+		ARG 1 target
+		ARG 2 damage
+		ARG 3 damageSource
 	METHOD getBarColor (Lnet/minecraft/world/item/ItemStack;)I
 		ARG 1 stack
 	METHOD getBarWidth (Lnet/minecraft/world/item/ItemStack;)I
@@ -50,9 +51,9 @@ CLASS net/minecraft/world/item/Item
 	METHOD getUseAnimation (Lnet/minecraft/world/item/ItemStack;)Lnet/minecraft/world/item/UseAnim;
 		COMMENT Returns the action that specifies what animation to play when the item is being used.
 		ARG 1 stack
-	METHOD getUseDuration (Lnet/minecraft/world/item/ItemStack;)I
-		COMMENT How long it takes to use or consume an item
+	METHOD getUseDuration (Lnet/minecraft/world/item/ItemStack;Lnet/minecraft/world/entity/LivingEntity;)I
 		ARG 1 stack
+		ARG 2 entity
 	METHOD hasCraftingRemainingItem ()Z
 		COMMENT True if this Item has a container item (a.k.a. crafting result)
 	METHOD hurtEnemy (Lnet/minecraft/world/item/ItemStack;Lnet/minecraft/world/entity/LivingEntity;Lnet/minecraft/world/entity/LivingEntity;)Z
@@ -127,6 +128,10 @@ CLASS net/minecraft/world/item/Item
 		ARG 2 slot
 		ARG 3 action
 		ARG 4 player
+	METHOD postHurtEnemy (Lnet/minecraft/world/item/ItemStack;Lnet/minecraft/world/entity/LivingEntity;Lnet/minecraft/world/entity/LivingEntity;)V
+		ARG 1 stack
+		ARG 2 target
+		ARG 3 attacker
 	METHOD releaseUsing (Lnet/minecraft/world/item/ItemStack;Lnet/minecraft/world/level/Level;Lnet/minecraft/world/entity/LivingEntity;I)V
 		COMMENT Called when the player stops using an Item (stops holding the right mouse button).
 		ARG 1 stack
@@ -158,6 +163,8 @@ CLASS net/minecraft/world/item/Item
 			ARG 1 maxDamage
 		METHOD food (Lnet/minecraft/world/food/FoodProperties;)Lnet/minecraft/world/item/Item$Properties;
 			ARG 1 food
+		METHOD jukeboxPlayable (Lnet/minecraft/resources/ResourceKey;)Lnet/minecraft/world/item/Item$Properties;
+			ARG 1 song
 		METHOD rarity (Lnet/minecraft/world/item/Rarity;)Lnet/minecraft/world/item/Item$Properties;
 			ARG 1 rarity
 		METHOD requiredFeatures ([Lnet/minecraft/world/flag/FeatureFlag;)Lnet/minecraft/world/item/Item$Properties;

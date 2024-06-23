@@ -47,12 +47,14 @@ CLASS net/minecraft/world/item/ItemStack
 	METHOD consume (ILnet/minecraft/world/entity/LivingEntity;)V
 		ARG 1 amount
 		ARG 2 entity
+	METHOD consumeAndReturn (ILnet/minecraft/world/entity/LivingEntity;)Lnet/minecraft/world/item/ItemStack;
+		ARG 1 amount
+		ARG 2 entity
 	METHOD copy ()Lnet/minecraft/world/item/ItemStack;
 		COMMENT Returns a new stack with the same properties.
 	METHOD copyWithCount (I)Lnet/minecraft/world/item/ItemStack;
 		ARG 1 count
-	METHOD enchant (Lnet/minecraft/world/item/enchantment/Enchantment;I)V
-		COMMENT Adds an enchantment with a desired level on the ItemStack.
+	METHOD enchant (Lnet/minecraft/core/Holder;I)V
 		ARG 1 enchantment
 		ARG 2 level
 	METHOD finishUsingItem (Lnet/minecraft/world/level/Level;Lnet/minecraft/world/entity/LivingEntity;)Lnet/minecraft/world/item/ItemStack;
@@ -61,6 +63,9 @@ CLASS net/minecraft/world/item/ItemStack
 		ARG 2 livingEntity
 	METHOD forEachModifier (Lnet/minecraft/world/entity/EquipmentSlot;Ljava/util/function/BiConsumer;)V
 		ARG 1 equipmentSLot
+		ARG 2 action
+	METHOD forEachModifier (Lnet/minecraft/world/entity/EquipmentSlotGroup;Ljava/util/function/BiConsumer;)V
+		ARG 1 slotGroup
 		ARG 2 action
 	METHOD getDestroySpeed (Lnet/minecraft/world/level/block/state/BlockState;)F
 		ARG 1 state
@@ -80,25 +85,31 @@ CLASS net/minecraft/world/item/ItemStack
 		ARG 1 tooltipContext
 		ARG 2 player
 		ARG 3 tooltipFlag
+	METHOD getUseDuration (Lnet/minecraft/world/entity/LivingEntity;)I
+		ARG 1 entity
 	METHOD grow (I)V
 		ARG 1 increment
 	METHOD hashItemAndComponents (Lnet/minecraft/world/item/ItemStack;)I
 		ARG 0 stack
 	METHOD hashStackList (Ljava/util/List;)I
 		ARG 0 list
-	METHOD hurtAndBreak (ILnet/minecraft/util/RandomSource;Lnet/minecraft/server/level/ServerPlayer;Ljava/lang/Runnable;)V
-		ARG 1 amount
-		ARG 2 random
+	METHOD hurtAndBreak (ILnet/minecraft/server/level/ServerLevel;Lnet/minecraft/server/level/ServerPlayer;Ljava/util/function/Consumer;)V
+		ARG 1 damage
+		ARG 2 level
 		ARG 3 player
-		ARG 4 onBroken
+		ARG 4 onBreak
 	METHOD hurtAndBreak (ILnet/minecraft/world/entity/LivingEntity;Lnet/minecraft/world/entity/EquipmentSlot;)V
 		ARG 1 amount
 		ARG 2 entity
 		ARG 3 slot
-	METHOD hurtEnemy (Lnet/minecraft/world/entity/LivingEntity;Lnet/minecraft/world/entity/player/Player;)V
-		COMMENT Calls the delegated method to the Item to damage the incoming Entity, and if necessary, triggers a stats increase.
-		ARG 1 entity
-		ARG 2 player
+	METHOD hurtAndConvertOnBreak (ILnet/minecraft/world/level/ItemLike;Lnet/minecraft/world/entity/LivingEntity;Lnet/minecraft/world/entity/EquipmentSlot;)Lnet/minecraft/world/item/ItemStack;
+		ARG 1 amount
+		ARG 2 item
+		ARG 3 entity
+		ARG 4 slot
+	METHOD hurtEnemy (Lnet/minecraft/world/entity/LivingEntity;Lnet/minecraft/world/entity/player/Player;)Z
+		ARG 1 target
+		ARG 2 attacker
 	METHOD interactLivingEntity (Lnet/minecraft/world/entity/player/Player;Lnet/minecraft/world/entity/LivingEntity;Lnet/minecraft/world/InteractionHand;)Lnet/minecraft/world/InteractionResult;
 		ARG 1 player
 		ARG 2 entity
@@ -195,6 +206,9 @@ CLASS net/minecraft/world/item/ItemStack
 	METHOD parseOptional (Lnet/minecraft/core/HolderLookup$Provider;Lnet/minecraft/nbt/CompoundTag;)Lnet/minecraft/world/item/ItemStack;
 		ARG 0 lookupProvider
 		ARG 1 tag
+	METHOD postHurtEnemy (Lnet/minecraft/world/entity/LivingEntity;Lnet/minecraft/world/entity/player/Player;)V
+		ARG 1 target
+		ARG 2 attacker
 	METHOD releaseUsing (Lnet/minecraft/world/level/Level;Lnet/minecraft/world/entity/LivingEntity;I)V
 		COMMENT Called when the player releases the use item button.
 		ARG 1 level
@@ -225,6 +239,8 @@ CLASS net/minecraft/world/item/ItemStack
 	METHOD split (I)Lnet/minecraft/world/item/ItemStack;
 		COMMENT Splits off a stack of the given amount of this stack and reduces this stack by the amount.
 		ARG 1 amount
+	METHOD transmuteCopy (Lnet/minecraft/world/level/ItemLike;)Lnet/minecraft/world/item/ItemStack;
+		ARG 1 item
 	METHOD transmuteCopy (Lnet/minecraft/world/level/ItemLike;I)Lnet/minecraft/world/item/ItemStack;
 		ARG 1 item
 		ARG 2 count
@@ -251,3 +267,5 @@ CLASS net/minecraft/world/item/ItemStack
 		ARG 0 components
 	METHOD validateStrict (Lnet/minecraft/world/item/ItemStack;)Lcom/mojang/serialization/DataResult;
 		ARG 0 stack
+	METHOD validatedStreamCodec (Lnet/minecraft/network/codec/StreamCodec;)Lnet/minecraft/network/codec/StreamCodec;
+		ARG 0 codec

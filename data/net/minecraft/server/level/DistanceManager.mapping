@@ -39,10 +39,6 @@ CLASS net/minecraft/server/level/DistanceManager
 		ARG 1 chunkPos
 	METHOD isChunkToRemove (J)Z
 		ARG 1 chunkPos
-	METHOD lambda$runAllUpdates$0 (Lnet/minecraft/server/level/ChunkMap;Lnet/minecraft/server/level/ChunkHolder;)V
-		ARG 2 chunkHolder
-	METHOD lambda$runAllUpdates$1 (Lnet/minecraft/server/level/Ticket;)Z
-		ARG 0 ticket
 	METHOD removePlayer (Lnet/minecraft/core/SectionPos;Lnet/minecraft/server/level/ServerPlayer;)V
 		ARG 1 sectionPos
 		ARG 2 player
@@ -60,7 +56,7 @@ CLASS net/minecraft/server/level/DistanceManager
 		ARG 3 level
 		ARG 4 value
 	METHOD runAllUpdates (Lnet/minecraft/server/level/ChunkMap;)Z
-		ARG 1 chunkManager
+		ARG 1 chunkMap
 	METHOD updateChunkForced (Lnet/minecraft/world/level/ChunkPos;Z)V
 		ARG 1 pos
 		ARG 2 add

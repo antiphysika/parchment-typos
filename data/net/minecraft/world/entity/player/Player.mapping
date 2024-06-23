@@ -87,12 +87,6 @@ CLASS net/minecraft/world/entity/player/Player
 		ARG 1 droppedItem
 		ARG 2 dropAround
 		ARG 3 includeThrowerName
-	METHOD findRespawnPositionAndUseSpawnBlock (Lnet/minecraft/server/level/ServerLevel;Lnet/minecraft/core/BlockPos;FZZ)Ljava/util/Optional;
-		ARG 0 serverLevel
-		ARG 1 spawnBlockPos
-		ARG 2 playerOrientation
-		ARG 3 isRespawnForced
-		ARG 4 respawnAfterWinningTheGame
 	METHOD freeAt (Lnet/minecraft/core/BlockPos;)Z
 		ARG 1 pos
 	METHOD getAbsorptionAmount ()F
@@ -104,6 +98,10 @@ CLASS net/minecraft/world/entity/player/Player
 		ARG 1 state
 	METHOD getDimensionChangingDelay ()I
 		COMMENT Return the amount of cooldown before this entity can use a portal again.
+	METHOD getEnchantedDamage (Lnet/minecraft/world/entity/Entity;FLnet/minecraft/world/damagesource/DamageSource;)F
+		ARG 1 entity
+		ARG 2 damage
+		ARG 3 damageSource
 	METHOD getEnderChestInventory ()Lnet/minecraft/world/inventory/PlayerEnderChestContainer;
 		COMMENT Returns the InventoryEnderChest of this player.
 	METHOD getFoodData ()Lnet/minecraft/world/food/FoodData;
@@ -114,8 +112,6 @@ CLASS net/minecraft/world/entity/player/Player
 		ARG 1 damageSource
 	METHOD getItemBySlot (Lnet/minecraft/world/entity/EquipmentSlot;)Lnet/minecraft/world/item/ItemStack;
 		ARG 1 slot1
-	METHOD getPortalWaitTime ()I
-		COMMENT Return the amount of time this entity should stay in a portal before being transported.
 	METHOD getProjectile (Lnet/minecraft/world/item/ItemStack;)Lnet/minecraft/world/item/ItemStack;
 		ARG 1 shootable
 	METHOD getRopeHoldPosition (F)Lnet/minecraft/world/phys/Vec3;
@@ -173,6 +169,8 @@ CLASS net/minecraft/world/entity/player/Player
 		COMMENT Causes this entity to do an upwards motion (jumping).
 	METHOD lambda$playShoulderEntityAmbientSound$0 (Lnet/minecraft/world/entity/EntityType;)Z
 		ARG 0 entityType
+	METHOD lambda$readAdditionalSaveData$2 (Lnet/minecraft/world/phys/Vec3;)V
+		ARG 1 currentImpulseImpactPos
 	METHOD magicCrit (Lnet/minecraft/world/entity/Entity;)V
 		ARG 1 entityHit
 	METHOD makeStuckInBlock (Lnet/minecraft/world/level/block/state/BlockState;Lnet/minecraft/world/phys/Vec3;)V
@@ -248,6 +246,8 @@ CLASS net/minecraft/world/entity/player/Player
 		ARG 6 canRestock
 	METHOD setEntityOnShoulder (Lnet/minecraft/nbt/CompoundTag;)Z
 		ARG 1 entityCompound
+	METHOD setIgnoreFallDamageFromCurrentImpulse (Z)V
+		ARG 1 ignoreFallDamageFromCurrentImpulse
 	METHOD setItemSlot (Lnet/minecraft/world/entity/EquipmentSlot;Lnet/minecraft/world/item/ItemStack;)V
 		ARG 1 slot
 		ARG 2 stack
@@ -266,8 +266,10 @@ CLASS net/minecraft/world/entity/player/Player
 		ARG 1 entityCompound
 	METHOD setShoulderEntityRight (Lnet/minecraft/nbt/CompoundTag;)V
 		ARG 1 entityCompound
-	METHOD startAutoSpinAttack (I)V
-		ARG 1 attackTicks
+	METHOD startAutoSpinAttack (IFLnet/minecraft/world/item/ItemStack;)V
+		ARG 1 ticks
+		ARG 2 damage
+		ARG 3 itemStack
 	METHOD startSleepInBed (Lnet/minecraft/core/BlockPos;)Lcom/mojang/datafixers/util/Either;
 		ARG 1 bedPos
 	METHOD stopSleepInBed (ZZ)V

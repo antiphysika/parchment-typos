@@ -1,12 +1,10 @@
 CLASS net/minecraft/client/Camera
-	METHOD getMaxZoom (D)D
-		COMMENT Checks for collision of the third person camera and returns the distance
-		ARG 1 startingDistance
-	METHOD move (DDD)V
-		COMMENT Moves the render position relative to the view direction, for third person camera
-		ARG 1 distanceOffset
-		ARG 3 verticalOffset
-		ARG 5 horizontalOffset
+	METHOD getMaxZoom (F)F
+		ARG 1 maxZoom
+	METHOD move (FFF)V
+		ARG 1 zoom
+		ARG 2 dy
+		ARG 3 dx
 	METHOD setPosition (DDD)V
 		COMMENT Sets the position and blockpos of the active render
 		ARG 1 x

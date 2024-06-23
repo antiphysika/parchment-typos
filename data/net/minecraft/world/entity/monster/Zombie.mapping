@@ -9,10 +9,6 @@ CLASS net/minecraft/world/entity/monster/Zombie
 		ARG 1 entityType
 	METHOD doHurtTarget (Lnet/minecraft/world/entity/Entity;)Z
 		ARG 1 entity
-	METHOD dropCustomDeathLoot (Lnet/minecraft/world/damagesource/DamageSource;IZ)V
-		ARG 1 source
-		ARG 2 looting
-		ARG 3 recentlyHit
 	METHOD getHurtSound (Lnet/minecraft/world/damagesource/DamageSource;)Lnet/minecraft/sounds/SoundEvent;
 		ARG 1 damageSource
 	METHOD getSpawnAsBabyOdds (Lnet/minecraft/util/RandomSource;)Z

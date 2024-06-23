@@ -9,8 +9,6 @@ CLASS net/minecraft/world/entity/animal/Rabbit
 		ARG 2 spawnType
 		ARG 3 pos
 		ARG 4 random
-	METHOD doHurtTarget (Lnet/minecraft/world/entity/Entity;)Z
-		ARG 1 entity
 	METHOD facePoint (DD)V
 		ARG 1 x
 		ARG 3 z

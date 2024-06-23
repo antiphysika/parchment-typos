@@ -37,8 +37,6 @@ CLASS net/minecraft/server/level/ServerPlayer
 		ARG 1 gameType
 	METHOD canHarmPlayer (Lnet/minecraft/world/entity/player/Player;)Z
 		ARG 1 other
-	METHOD changeDimension (Lnet/minecraft/server/level/ServerLevel;)Lnet/minecraft/world/entity/Entity;
-		ARG 1 server
 	METHOD checkFallDamage (DZLnet/minecraft/world/level/block/state/BlockState;Lnet/minecraft/core/BlockPos;)V
 		ARG 1 y
 		ARG 3 onGround
@@ -56,11 +54,10 @@ CLASS net/minecraft/server/level/ServerPlayer
 		COMMENT Sets the current crafting inventory back to the 2x2 square.
 	METHOD completeUsingItem ()V
 		COMMENT Used for when item use count runs out, ie: eating completed
+	METHOD copyRespawnPosition (Lnet/minecraft/server/level/ServerPlayer;)V
+		ARG 1 player
 	METHOD createCommonSpawnInfo (Lnet/minecraft/server/level/ServerLevel;)Lnet/minecraft/network/protocol/game/CommonPlayerSpawnInfo;
 		ARG 1 level
-	METHOD createEndPlatform (Lnet/minecraft/server/level/ServerLevel;Lnet/minecraft/core/BlockPos;)V
-		ARG 1 level
-		ARG 2 pos
 	METHOD crit (Lnet/minecraft/world/entity/Entity;)V
 		COMMENT Called when the entity is dealt a critical hit.
 		ARG 1 entityHit
@@ -85,8 +82,15 @@ CLASS net/minecraft/server/level/ServerPlayer
 	METHOD drop (Z)Z
 		ARG 1 dropStack
 			COMMENT Whether to drop the entire stack of items. If {@code false}, drops a single item.
-	METHOD fudgeSpawnLocation (Lnet/minecraft/server/level/ServerLevel;)V
-		ARG 1 level
+	METHOD findRespawnAndUseSpawnBlock (Lnet/minecraft/server/level/ServerLevel;Lnet/minecraft/core/BlockPos;FZZ)Ljava/util/Optional;
+		ARG 0 level
+		ARG 1 pos
+		ARG 2 angle
+		ARG 3 forced
+		ARG 4 keepInventory
+	METHOD findRespawnPositionAndUseSpawnBlock (ZLnet/minecraft/world/level/portal/DimensionTransition$PostDimensionTransition;)Lnet/minecraft/world/level/portal/DimensionTransition;
+		ARG 1 keepInventory
+		ARG 2 postDimensionTransition
 	METHOD getCoprime (I)I
 		ARG 1 spawnArea
 	METHOD getIpAddress ()Ljava/lang/String;
@@ -136,8 +140,6 @@ CLASS net/minecraft/server/level/ServerPlayer
 		ARG 5 z
 	METHOD nextContainerCounter ()V
 		COMMENT Gets the next window id to use.
-	METHOD onChangedBlock (Lnet/minecraft/core/BlockPos;)V
-		ARG 1 pos
 	METHOD onEffectRemoved (Lnet/minecraft/world/effect/MobEffectInstance;)V
 		ARG 1 effect
 	METHOD onEnchantmentPerformed (Lnet/minecraft/world/item/ItemStack;I)V
@@ -200,6 +202,8 @@ CLASS net/minecraft/server/level/ServerPlayer
 		ARG 1 experiencePoints
 	METHOD setGameMode (Lnet/minecraft/world/level/GameType;)Z
 		ARG 1 gameMode
+	METHOD setKnownMovement (Lnet/minecraft/world/phys/Vec3;)V
+		ARG 1 knownMovement
 	METHOD setLastSectionPos (Lnet/minecraft/core/SectionPos;)V
 		ARG 1 sectionPos
 	METHOD setPlayerInput (FFZZ)V
@@ -261,3 +265,10 @@ CLASS net/minecraft/server/level/ServerPlayer
 			ARG 1 container
 			ARG 2 id
 			ARG 3 value
+	CLASS RespawnPosAngle
+		METHOD calculateLookAtYaw (Lnet/minecraft/world/phys/Vec3;Lnet/minecraft/core/BlockPos;)F
+			ARG 0 position
+			ARG 1 towardsPos
+		METHOD of (Lnet/minecraft/world/phys/Vec3;Lnet/minecraft/core/BlockPos;)Lnet/minecraft/server/level/ServerPlayer$RespawnPosAngle;
+			ARG 0 position
+			ARG 1 towardsPos

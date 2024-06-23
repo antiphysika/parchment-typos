@@ -35,18 +35,6 @@ CLASS net/minecraft/client/gui/Gui
 			COMMENT the GuiGraphics object used for rendering.
 		ARG 2 objective
 			COMMENT the objective representing the scoreboard sidebar.
-	METHOD drawBackdrop (Lnet/minecraft/client/gui/GuiGraphics;Lnet/minecraft/client/gui/Font;III)V
-		COMMENT Draws a backdrop for text with the provided GuiGraphics object, font, and dimensions, at the specified y-coordinate.
-		ARG 1 guiGraphics
-			COMMENT the GuiGraphics object used for rendering.
-		ARG 2 font
-			COMMENT the Font used for calculating the height of the backdrop.
-		ARG 3 yPosition
-			COMMENT the vertical position (Y-coordinate) of the backdrop.
-		ARG 4 width
-			COMMENT the width of the backdrop.
-		ARG 5 height
-			COMMENT the height of the backdrop.
 	METHOD getBossOverlay ()Lnet/minecraft/client/gui/components/BossHealthOverlay;
 		COMMENT {@return the {@link BossHealthOverlay} instance associated with the client}
 	METHOD getCameraPlayer ()Lnet/minecraft/world/entity/player/Player;
@@ -81,15 +69,25 @@ CLASS net/minecraft/client/gui/Gui
 			COMMENT the health of the mount entity.
 	METHOD isShowingChatDisabledByPlayer ()Z
 		COMMENT {@return {@code true} if the chat disabled message is being shown, {@code false} otherwise}
+	METHOD lambda$displayScoreboardSidebar$6 (Lnet/minecraft/world/scores/PlayerScoreEntry;)Z
+		ARG 0 entry
+	METHOD lambda$displayScoreboardSidebar$7 (Lnet/minecraft/world/scores/Scoreboard;Lnet/minecraft/network/chat/numbers/NumberFormat;Lnet/minecraft/world/scores/PlayerScoreEntry;)Lnet/minecraft/client/gui/Gui$1DisplayEntry;
+		ARG 3 scoreEntry
+	METHOD lambda$new$0 (Lnet/minecraft/client/gui/GuiGraphics;Lnet/minecraft/client/DeltaTracker;)V
+		ARG 1 guiGraphics
+		ARG 2 deltaTracker
+	METHOD lambda$new$1 (Lnet/minecraft/client/gui/GuiGraphics;Lnet/minecraft/client/DeltaTracker;)V
+		ARG 1 guiGraphics
+		ARG 2 deltaTracker
+	METHOD lambda$new$2 (Lnet/minecraft/client/gui/GuiGraphics;Lnet/minecraft/client/DeltaTracker;)V
+		ARG 1 guiGraphics
+		ARG 2 deltaTracker
 	METHOD onDisconnected ()V
 		COMMENT Called when the player is disconnected from the server.
 		COMMENT Resets various UI elements and clears messages.
-	METHOD render (Lnet/minecraft/client/gui/GuiGraphics;F)V
-		COMMENT Renders the GUI using the provided GuiGraphics object and partial tick value.
+	METHOD render (Lnet/minecraft/client/gui/GuiGraphics;Lnet/minecraft/client/DeltaTracker;)V
 		ARG 1 guiGraphics
-			COMMENT the GuiGraphics object used for rendering.
-		ARG 2 partialTick
-			COMMENT the partial tick value for smooth animations.
+		ARG 2 deltaTracker
 	METHOD renderArmor (Lnet/minecraft/client/gui/GuiGraphics;Lnet/minecraft/world/entity/player/Player;IIII)V
 		ARG 0 guiGraphics
 		ARG 1 player
@@ -97,30 +95,30 @@ CLASS net/minecraft/client/gui/Gui
 		ARG 3 heartRows
 		ARG 4 height
 		ARG 5 x
-	METHOD renderCameraOverlays (Lnet/minecraft/client/gui/GuiGraphics;F)V
+	METHOD renderCameraOverlays (Lnet/minecraft/client/gui/GuiGraphics;Lnet/minecraft/client/DeltaTracker;)V
 		ARG 1 guiGraphics
-		ARG 2 partialTick
-	METHOD renderChat (Lnet/minecraft/client/gui/GuiGraphics;F)V
+		ARG 2 deltaTracker
+	METHOD renderChat (Lnet/minecraft/client/gui/GuiGraphics;Lnet/minecraft/client/DeltaTracker;)V
 		ARG 1 guiGraphics
-		ARG 2 partialTick
-	METHOD renderCrosshair (Lnet/minecraft/client/gui/GuiGraphics;F)V
+		ARG 2 deltaTracker
+	METHOD renderCrosshair (Lnet/minecraft/client/gui/GuiGraphics;Lnet/minecraft/client/DeltaTracker;)V
 		ARG 1 guiGraphics
-		ARG 2 partialTick
-	METHOD renderDemoOverlay (Lnet/minecraft/client/gui/GuiGraphics;F)V
+		ARG 2 deltaTracker
+	METHOD renderDemoOverlay (Lnet/minecraft/client/gui/GuiGraphics;Lnet/minecraft/client/DeltaTracker;)V
 		ARG 1 guiGraphics
-		ARG 2 partialTick
-	METHOD renderEffects (Lnet/minecraft/client/gui/GuiGraphics;F)V
+		ARG 2 deltaTracker
+	METHOD renderEffects (Lnet/minecraft/client/gui/GuiGraphics;Lnet/minecraft/client/DeltaTracker;)V
 		ARG 1 guiGraphics
-		ARG 2 partialTick
+		ARG 2 deltaTracker
 	METHOD renderExperienceBar (Lnet/minecraft/client/gui/GuiGraphics;I)V
 		COMMENT Renders the experience bar on the screen using the provided GuiGraphics object and x-coordinate.
 		ARG 1 guiGraphics
 			COMMENT the GuiGraphics object used for rendering.
 		ARG 2 x
 			COMMENT the x-coordinate for rendering the experience bar.
-	METHOD renderExperienceLevel (Lnet/minecraft/client/gui/GuiGraphics;F)V
+	METHOD renderExperienceLevel (Lnet/minecraft/client/gui/GuiGraphics;Lnet/minecraft/client/DeltaTracker;)V
 		ARG 1 guiGraphics
-		ARG 2 partialTick
+		ARG 2 deltaTracker
 	METHOD renderFood (Lnet/minecraft/client/gui/GuiGraphics;Lnet/minecraft/world/entity/player/Player;II)V
 		ARG 1 guiGraphics
 		ARG 2 player
@@ -158,12 +156,12 @@ CLASS net/minecraft/client/gui/Gui
 			COMMENT the absorption amount of the player.
 		ARG 11 renderHighlight
 			COMMENT determines whether to render the highlight hearts.
-	METHOD renderHotbarAndDecorations (Lnet/minecraft/client/gui/GuiGraphics;F)V
+	METHOD renderHotbarAndDecorations (Lnet/minecraft/client/gui/GuiGraphics;Lnet/minecraft/client/DeltaTracker;)V
 		ARG 1 guiGraphics
-		ARG 2 partialTick
-	METHOD renderItemHotbar (Lnet/minecraft/client/gui/GuiGraphics;F)V
+		ARG 2 deltaTracker
+	METHOD renderItemHotbar (Lnet/minecraft/client/gui/GuiGraphics;Lnet/minecraft/client/DeltaTracker;)V
 		ARG 1 guiGraphics
-		ARG 2 partialTick
+		ARG 2 deltaTracker
 	METHOD renderJumpMeter (Lnet/minecraft/world/entity/PlayerRideableJumping;Lnet/minecraft/client/gui/GuiGraphics;I)V
 		COMMENT Renders the jump meter for a rideable entity on the screen using the provided rideable object, GuiGraphics object, and x-coordinate.
 		ARG 1 rideable
@@ -172,9 +170,9 @@ CLASS net/minecraft/client/gui/Gui
 			COMMENT the GuiGraphics object used for rendering.
 		ARG 3 x
 			COMMENT the x-coordinate for rendering the jump meter.
-	METHOD renderOverlayMessage (Lnet/minecraft/client/gui/GuiGraphics;F)V
+	METHOD renderOverlayMessage (Lnet/minecraft/client/gui/GuiGraphics;Lnet/minecraft/client/DeltaTracker;)V
 		ARG 1 guiGraphics
-		ARG 2 partialTick
+		ARG 2 deltaTracker
 	METHOD renderPlayerHealth (Lnet/minecraft/client/gui/GuiGraphics;)V
 		COMMENT Renders the player's health, armor, food, and air bars on the screen.
 		ARG 1 guiGraphics
@@ -185,44 +183,36 @@ CLASS net/minecraft/client/gui/Gui
 			COMMENT the graphics object used for rendering.
 		ARG 2 alpha
 			COMMENT the alpha value of the overlay.
-	METHOD renderSavingIndicator (Lnet/minecraft/client/gui/GuiGraphics;F)V
+	METHOD renderSavingIndicator (Lnet/minecraft/client/gui/GuiGraphics;Lnet/minecraft/client/DeltaTracker;)V
 		ARG 1 guiGraphics
-		ARG 2 partialTick
-	METHOD renderScoreboardSidebar (Lnet/minecraft/client/gui/GuiGraphics;F)V
+		ARG 2 deltaTracker
+	METHOD renderScoreboardSidebar (Lnet/minecraft/client/gui/GuiGraphics;Lnet/minecraft/client/DeltaTracker;)V
 		ARG 1 guiGraphics
-		ARG 2 partialTick
+		ARG 2 deltaTracker
 	METHOD renderSelectedItemName (Lnet/minecraft/client/gui/GuiGraphics;)V
 		COMMENT Renders the name of the selected item on the screen using the provided GuiGraphics object.
 		ARG 1 guiGraphics
 			COMMENT the GuiGraphics object used for rendering.
-	METHOD renderSleepOverlay (Lnet/minecraft/client/gui/GuiGraphics;F)V
+	METHOD renderSleepOverlay (Lnet/minecraft/client/gui/GuiGraphics;Lnet/minecraft/client/DeltaTracker;)V
 		ARG 1 guiGraphics
-		ARG 2 partialTick
-	METHOD renderSlot (Lnet/minecraft/client/gui/GuiGraphics;IIFLnet/minecraft/world/entity/player/Player;Lnet/minecraft/world/item/ItemStack;I)V
-		COMMENT Renders a slot with the specified item stack at the given position on the screen.
+		ARG 2 deltaTracker
+	METHOD renderSlot (Lnet/minecraft/client/gui/GuiGraphics;IILnet/minecraft/client/DeltaTracker;Lnet/minecraft/world/entity/player/Player;Lnet/minecraft/world/item/ItemStack;I)V
 		ARG 1 guiGraphics
-			COMMENT the graphics object used for rendering.
 		ARG 2 x
-			COMMENT the x-coordinate of the slot.
 		ARG 3 y
-			COMMENT the y-coordinate of the slot.
-		ARG 4 partialTick
-			COMMENT the partial tick value for smooth animation.
+		ARG 4 deltaTracker
 		ARG 5 player
-			COMMENT the player associated with the slot.
 		ARG 6 stack
-			COMMENT the item stack to render in the slot.
 		ARG 7 seed
-			COMMENT the seed value used for random rendering variations.
 	METHOD renderSpyglassOverlay (Lnet/minecraft/client/gui/GuiGraphics;F)V
 		COMMENT Renders the overlay for the spyglass effect.
 		ARG 1 guiGraphics
 			COMMENT the graphics object used for rendering.
 		ARG 2 scopeScale
 			COMMENT the scale factor for the spyglass scope.
-	METHOD renderTabList (Lnet/minecraft/client/gui/GuiGraphics;F)V
+	METHOD renderTabList (Lnet/minecraft/client/gui/GuiGraphics;Lnet/minecraft/client/DeltaTracker;)V
 		ARG 1 guiGraphics
-		ARG 2 partialTick
+		ARG 2 deltaTracker
 	METHOD renderTextureOverlay (Lnet/minecraft/client/gui/GuiGraphics;Lnet/minecraft/resources/ResourceLocation;F)V
 		COMMENT Renders a texture overlay on the screen with the specified shader location and alpha value.
 		ARG 1 guiGraphics
@@ -231,9 +221,9 @@ CLASS net/minecraft/client/gui/Gui
 			COMMENT the location of the shader texture.
 		ARG 3 alpha
 			COMMENT the alpha value to apply to the overlay.
-	METHOD renderTitle (Lnet/minecraft/client/gui/GuiGraphics;F)V
+	METHOD renderTitle (Lnet/minecraft/client/gui/GuiGraphics;Lnet/minecraft/client/DeltaTracker;)V
 		ARG 1 guiGraphics
-		ARG 2 partialTick
+		ARG 2 deltaTracker
 	METHOD renderVehicleHealth (Lnet/minecraft/client/gui/GuiGraphics;)V
 		COMMENT Renders the health of the player's vehicle on the screen.
 		ARG 1 guiGraphics

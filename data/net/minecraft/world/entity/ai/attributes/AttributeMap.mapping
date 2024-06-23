@@ -1,25 +1,31 @@
 CLASS net/minecraft/world/entity/ai/attributes/AttributeMap
 	METHOD <init> (Lnet/minecraft/world/entity/ai/attributes/AttributeSupplier;)V
 		ARG 1 supplier
-	METHOD assignValues (Lnet/minecraft/world/entity/ai/attributes/AttributeMap;)V
-		ARG 1 manager
+	METHOD addTransientAttributeModifiers (Lcom/google/common/collect/Multimap;)V
+		ARG 1 modifiers
+	METHOD assignAllValues (Lnet/minecraft/world/entity/ai/attributes/AttributeMap;)V
+		ARG 1 map
+	METHOD assignBaseValues (Lnet/minecraft/world/entity/ai/attributes/AttributeMap;)V
+		ARG 1 map
 	METHOD getBaseValue (Lnet/minecraft/core/Holder;)D
 		ARG 1 attribute
 	METHOD getInstance (Lnet/minecraft/core/Holder;)Lnet/minecraft/world/entity/ai/attributes/AttributeInstance;
 		ARG 1 attribute
-	METHOD getModifierValue (Lnet/minecraft/core/Holder;Ljava/util/UUID;)D
+	METHOD getModifierValue (Lnet/minecraft/core/Holder;Lnet/minecraft/resources/ResourceLocation;)D
 		ARG 1 attribute
-		ARG 2 uuid
+		ARG 2 id
 	METHOD getValue (Lnet/minecraft/core/Holder;)D
 		ARG 1 attribute
 	METHOD hasAttribute (Lnet/minecraft/core/Holder;)Z
 		ARG 1 attribute
-	METHOD hasModifier (Lnet/minecraft/core/Holder;Ljava/util/UUID;)Z
+	METHOD hasModifier (Lnet/minecraft/core/Holder;Lnet/minecraft/resources/ResourceLocation;)Z
 		ARG 1 attribute
-		ARG 2 uuid
+		ARG 2 id
 	METHOD lambda$getSyncableAttributes$0 (Lnet/minecraft/world/entity/ai/attributes/AttributeInstance;)Z
 		ARG 0 instance
 	METHOD load (Lnet/minecraft/nbt/ListTag;)V
 		ARG 1 nbt
 	METHOD onAttributeModified (Lnet/minecraft/world/entity/ai/attributes/AttributeInstance;)V
 		ARG 1 instance
+	METHOD removeAttributeModifiers (Lcom/google/common/collect/Multimap;)V
+		ARG 1 modifiers

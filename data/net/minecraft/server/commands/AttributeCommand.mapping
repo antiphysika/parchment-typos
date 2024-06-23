@@ -1,12 +1,11 @@
 CLASS net/minecraft/server/commands/AttributeCommand
-	METHOD addModifier (Lnet/minecraft/commands/CommandSourceStack;Lnet/minecraft/world/entity/Entity;Lnet/minecraft/core/Holder;Ljava/util/UUID;Ljava/lang/String;DLnet/minecraft/world/entity/ai/attributes/AttributeModifier$Operation;)I
+	METHOD addModifier (Lnet/minecraft/commands/CommandSourceStack;Lnet/minecraft/world/entity/Entity;Lnet/minecraft/core/Holder;Lnet/minecraft/resources/ResourceLocation;DLnet/minecraft/world/entity/ai/attributes/AttributeModifier$Operation;)I
 		ARG 0 source
 		ARG 1 entity
 		ARG 2 attribute
-		ARG 3 uuid
-		ARG 4 name
-		ARG 5 amount
-		ARG 7 operation
+		ARG 3 id
+		ARG 4 amount
+		ARG 6 operation
 	METHOD getAttributeBase (Lnet/minecraft/commands/CommandSourceStack;Lnet/minecraft/world/entity/Entity;Lnet/minecraft/core/Holder;D)I
 		ARG 0 source
 		ARG 1 entity
@@ -17,11 +16,11 @@ CLASS net/minecraft/server/commands/AttributeCommand
 	METHOD getAttributeInstance (Lnet/minecraft/world/entity/Entity;Lnet/minecraft/core/Holder;)Lnet/minecraft/world/entity/ai/attributes/AttributeInstance;
 		ARG 0 entity
 		ARG 1 attribute
-	METHOD getAttributeModifier (Lnet/minecraft/commands/CommandSourceStack;Lnet/minecraft/world/entity/Entity;Lnet/minecraft/core/Holder;Ljava/util/UUID;D)I
+	METHOD getAttributeModifier (Lnet/minecraft/commands/CommandSourceStack;Lnet/minecraft/world/entity/Entity;Lnet/minecraft/core/Holder;Lnet/minecraft/resources/ResourceLocation;D)I
 		ARG 0 source
 		ARG 1 entity
 		ARG 2 attribute
-		ARG 3 uuid
+		ARG 3 id
 		ARG 4 scale
 	METHOD getAttributeValue (Lnet/minecraft/commands/CommandSourceStack;Lnet/minecraft/world/entity/Entity;Lnet/minecraft/core/Holder;D)I
 		ARG 0 source
@@ -73,11 +72,11 @@ CLASS net/minecraft/server/commands/AttributeCommand
 	METHOD register (Lcom/mojang/brigadier/CommandDispatcher;Lnet/minecraft/commands/CommandBuildContext;)V
 		ARG 0 dispatcher
 		ARG 1 context
-	METHOD removeModifier (Lnet/minecraft/commands/CommandSourceStack;Lnet/minecraft/world/entity/Entity;Lnet/minecraft/core/Holder;Ljava/util/UUID;)I
+	METHOD removeModifier (Lnet/minecraft/commands/CommandSourceStack;Lnet/minecraft/world/entity/Entity;Lnet/minecraft/core/Holder;Lnet/minecraft/resources/ResourceLocation;)I
 		ARG 0 source
 		ARG 1 entity
 		ARG 2 attribute
-		ARG 3 uuid
+		ARG 3 id
 	METHOD setAttributeBase (Lnet/minecraft/commands/CommandSourceStack;Lnet/minecraft/world/entity/Entity;Lnet/minecraft/core/Holder;D)I
 		ARG 0 source
 		ARG 1 entity
