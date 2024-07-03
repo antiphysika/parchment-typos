@@ -32,6 +32,16 @@ CLASS net/minecraft/world/item/enchantment/effects/SpawnParticlesEffect
 			ARG 3 center
 			ARG 5 size
 			ARG 6 random
+		METHOD lambda$static$0 (DDFLnet/minecraft/util/RandomSource;)D
+			ARG 0 position
+			ARG 2 center
+			ARG 4 size
+			ARG 5 random
+		METHOD lambda$static$1 (DDFLnet/minecraft/util/RandomSource;)D
+			ARG 0 position
+			ARG 2 center
+			ARG 4 size
+			ARG 5 random
 		CLASS CoordinateSource
 			METHOD getCoordinate (DDFLnet/minecraft/util/RandomSource;)D
 				ARG 1 position

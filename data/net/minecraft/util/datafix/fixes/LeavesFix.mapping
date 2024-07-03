@@ -21,6 +21,7 @@ CLASS net/minecraft/util/datafix/fixes/LeavesFix
 		ARG 0 map
 	CLASS Section
 		METHOD <init> (Lcom/mojang/datafixers/Typed;Lcom/mojang/datafixers/schemas/Schema;)V
+			ARG 1 data
 			ARG 2 schema
 		METHOD getBlock (I)I
 			ARG 1 index
@@ -29,8 +30,12 @@ CLASS net/minecraft/util/datafix/fixes/LeavesFix
 			ARG 2 persistent
 			ARG 3 distance
 		METHOD readStorage (Lcom/mojang/serialization/Dynamic;)V
-			ARG 1 dynamic
+			ARG 1 data
+		METHOD write (Lcom/mojang/datafixers/Typed;)Lcom/mojang/datafixers/Typed;
+			ARG 1 data
 	CLASS LeavesSection
+		METHOD getDistance (I)I
+			ARG 1 index
 		METHOD isLeaf (I)Z
 			ARG 1 id
 		METHOD isLog (I)Z

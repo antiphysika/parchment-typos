@@ -15,6 +15,10 @@ CLASS net/minecraft/world/level/storage/loot/functions/ApplyBonusCount
 	METHOD addUniformBonusCount (Lnet/minecraft/core/Holder;I)Lnet/minecraft/world/level/storage/loot/functions/LootItemConditionalFunction$Builder;
 		ARG 0 enchantment
 		ARG 1 bonusMultiplier
+	METHOD lambda$static$2 (Lnet/minecraft/world/level/storage/loot/functions/ApplyBonusCount;)Lnet/minecraft/core/Holder;
+		ARG 0 applyBonusCount
+	METHOD lambda$static$3 (Lnet/minecraft/world/level/storage/loot/functions/ApplyBonusCount;)Lnet/minecraft/world/level/storage/loot/functions/ApplyBonusCount$Formula;
+		ARG 0 applyBonusCount
 	METHOD lambda$static$4 (Lcom/mojang/serialization/codecs/RecordCodecBuilder$Instance;)Lcom/mojang/datafixers/kinds/App;
 		ARG 0 instance
 	METHOD run (Lnet/minecraft/world/item/ItemStack;Lnet/minecraft/world/level/storage/loot/LootContext;)Lnet/minecraft/world/item/ItemStack;

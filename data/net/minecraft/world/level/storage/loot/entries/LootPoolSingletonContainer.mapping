@@ -16,6 +16,10 @@ CLASS net/minecraft/world/level/storage/loot/entries/LootPoolSingletonContainer
 		COMMENT Contrary to the method name this method does not always generate one stack, it can also generate zero or multiple stacks.
 		ARG 1 stackConsumer
 		ARG 2 lootContext
+	METHOD lambda$singletonFields$0 (Lnet/minecraft/world/level/storage/loot/entries/LootPoolSingletonContainer;)Ljava/lang/Integer;
+		ARG 0 container
+	METHOD lambda$singletonFields$2 (Lnet/minecraft/world/level/storage/loot/entries/LootPoolSingletonContainer;)Ljava/util/List;
+		ARG 0 container
 	METHOD simpleBuilder (Lnet/minecraft/world/level/storage/loot/entries/LootPoolSingletonContainer$EntryConstructor;)Lnet/minecraft/world/level/storage/loot/entries/LootPoolSingletonContainer$Builder;
 		ARG 0 entryBuilder
 	METHOD singletonFields (Lcom/mojang/serialization/codecs/RecordCodecBuilder$Instance;)Lcom/mojang/datafixers/Products$P4;

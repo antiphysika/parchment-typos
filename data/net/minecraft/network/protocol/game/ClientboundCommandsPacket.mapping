@@ -17,6 +17,7 @@ CLASS net/minecraft/network/protocol/game/ClientboundCommandsPacket
 		ARG 1 handler
 	METHOD read (Lnet/minecraft/network/FriendlyByteBuf;B)Lnet/minecraft/network/protocol/game/ClientboundCommandsPacket$NodeStub;
 		ARG 0 buffer
+		ARG 1 flags
 	METHOD readNode (Lnet/minecraft/network/FriendlyByteBuf;)Lnet/minecraft/network/protocol/game/ClientboundCommandsPacket$Entry;
 		ARG 0 buffer
 	METHOD validateEntries (Ljava/util/List;)V
@@ -33,6 +34,10 @@ CLASS net/minecraft/network/protocol/game/ClientboundCommandsPacket
 			ARG 2 flags
 			ARG 3 redirect
 			ARG 4 children
+		METHOD canBuild (Lit/unimi/dsi/fastutil/ints/IntSet;)Z
+			ARG 1 children
+		METHOD canResolve (Lit/unimi/dsi/fastutil/ints/IntSet;)Z
+			ARG 1 children
 		METHOD write (Lnet/minecraft/network/FriendlyByteBuf;)V
 			ARG 1 buffer
 	CLASS NodeStub

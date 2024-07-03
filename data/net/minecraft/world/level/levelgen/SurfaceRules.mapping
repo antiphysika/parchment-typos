@@ -96,6 +96,8 @@ CLASS net/minecraft/world/level/levelgen/SurfaceRules
 	CLASS TestRuleSource
 		METHOD apply (Lnet/minecraft/world/level/levelgen/SurfaceRules$Context;)Lnet/minecraft/world/level/levelgen/SurfaceRules$SurfaceRule;
 			ARG 1 context
+		METHOD lambda$static$0 (Lcom/mojang/serialization/codecs/RecordCodecBuilder$Instance;)Lcom/mojang/datafixers/kinds/App;
+			ARG 0 instance
 	CLASS BlockRuleSource
 		METHOD <init> (Lnet/minecraft/world/level/block/state/BlockState;)V
 			ARG 1 resultState
@@ -107,9 +109,13 @@ CLASS net/minecraft/world/level/levelgen/SurfaceRules
 	CLASS StoneDepthCheck
 		METHOD apply (Lnet/minecraft/world/level/levelgen/SurfaceRules$Context;)Lnet/minecraft/world/level/levelgen/SurfaceRules$Condition;
 			ARG 1 context
+		METHOD lambda$static$0 (Lcom/mojang/serialization/codecs/RecordCodecBuilder$Instance;)Lcom/mojang/datafixers/kinds/App;
+			ARG 0 instance
 	CLASS YConditionSource
 		METHOD apply (Lnet/minecraft/world/level/levelgen/SurfaceRules$Context;)Lnet/minecraft/world/level/levelgen/SurfaceRules$Condition;
 			ARG 1 context
+		METHOD lambda$static$0 (Lcom/mojang/serialization/codecs/RecordCodecBuilder$Instance;)Lcom/mojang/datafixers/kinds/App;
+			ARG 0 instance
 	CLASS NotConditionSource
 		METHOD apply (Lnet/minecraft/world/level/levelgen/SurfaceRules$Context;)Lnet/minecraft/world/level/levelgen/SurfaceRules$Condition;
 			ARG 1 context
@@ -126,12 +132,18 @@ CLASS net/minecraft/world/level/levelgen/SurfaceRules
 	CLASS WaterConditionSource
 		METHOD apply (Lnet/minecraft/world/level/levelgen/SurfaceRules$Context;)Lnet/minecraft/world/level/levelgen/SurfaceRules$Condition;
 			ARG 1 context
+		METHOD lambda$static$0 (Lcom/mojang/serialization/codecs/RecordCodecBuilder$Instance;)Lcom/mojang/datafixers/kinds/App;
+			ARG 0 instance
 	CLASS AbovePreliminarySurface
 		METHOD apply (Lnet/minecraft/world/level/levelgen/SurfaceRules$Context;)Lnet/minecraft/world/level/levelgen/SurfaceRules$Condition;
 			ARG 1 context
 	CLASS NoiseThresholdConditionSource
 		METHOD apply (Lnet/minecraft/world/level/levelgen/SurfaceRules$Context;)Lnet/minecraft/world/level/levelgen/SurfaceRules$Condition;
 			ARG 1 context
+		METHOD lambda$static$0 (Lcom/mojang/serialization/codecs/RecordCodecBuilder$Instance;)Lcom/mojang/datafixers/kinds/App;
+			ARG 0 instance
 	CLASS VerticalGradientConditionSource
 		METHOD apply (Lnet/minecraft/world/level/levelgen/SurfaceRules$Context;)Lnet/minecraft/world/level/levelgen/SurfaceRules$Condition;
 			ARG 1 context
+		METHOD lambda$static$0 (Lcom/mojang/serialization/codecs/RecordCodecBuilder$Instance;)Lcom/mojang/datafixers/kinds/App;
+			ARG 0 instance
