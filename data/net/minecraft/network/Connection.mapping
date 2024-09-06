@@ -23,7 +23,7 @@ CLASS net/minecraft/network/Connection
 		ARG 0 pipeline
 		ARG 1 flow
 		ARG 2 memoryOnly
-		ARG 3 bandwithDebugMonitor
+		ARG 3 bandwidthDebugMonitor
 	METHOD connect (Ljava/net/InetSocketAddress;ZLnet/minecraft/network/Connection;)Lio/netty/channel/ChannelFuture;
 		ARG 0 address
 		ARG 1 useEpollIfAvailable
@@ -38,7 +38,7 @@ CLASS net/minecraft/network/Connection
 		ARG 1 useEpollIfAvailable
 		ARG 2 sampleLogger
 	METHOD createFrameDecoder (Lnet/minecraft/network/BandwidthDebugMonitor;Z)Lio/netty/channel/ChannelInboundHandler;
-		ARG 0 bandwithDebugMonitor
+		ARG 0 bandwidthDebugMonitor
 		ARG 1 memoryOnly
 	METHOD createFrameEncoder (Z)Lio/netty/channel/ChannelOutboundHandler;
 		ARG 0 memoryOnly
@@ -125,7 +125,7 @@ CLASS net/minecraft/network/Connection
 		ARG 2 sendListener
 		ARG 3 flush
 	METHOD setBandwidthLogger (Lnet/minecraft/util/debugchart/LocalSampleLogger;)V
-		ARG 1 bandwithLogger
+		ARG 1 bandwidthLogger
 	METHOD setEncryptionKey (Ljavax/crypto/Cipher;Ljavax/crypto/Cipher;)V
 		COMMENT Enables encryption for this connection using the given decrypting and encrypting ciphers.
 		COMMENT This adds new handlers to this connection's pipeline which handle the decrypting and encrypting.
