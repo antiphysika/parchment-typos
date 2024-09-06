@@ -24,7 +24,7 @@ CLASS net/minecraft/world/level/levelgen/NoiseChunk
 		ARG 1 state
 		ARG 2 beardifierOrMarker
 		ARG 3 noiseGeneratorSettings
-		ARG 4 fluidPicke
+		ARG 4 fluidPicker
 		ARG 5 blender
 	METHOD getOrComputeBlendingOutput (II)Lnet/minecraft/world/level/levelgen/blending/Blender$BlendingOutput;
 		ARG 1 chunkX
