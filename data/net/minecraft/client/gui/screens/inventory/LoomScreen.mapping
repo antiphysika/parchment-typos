@@ -21,6 +21,6 @@ CLASS net/minecraft/client/gui/screens/inventory/LoomScreen
 		ARG 8 dragY
 	METHOD renderPattern (Lnet/minecraft/client/gui/GuiGraphics;Lnet/minecraft/core/Holder;II)V
 		ARG 1 guiGraphics
-		ARG 2 patern
+		ARG 2 pattern
 		ARG 3 x
 		ARG 4 y
