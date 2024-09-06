@@ -90,7 +90,7 @@ CLASS net/minecraft/network/Connection
 		ARG 1 hostName
 		ARG 2 port
 		ARG 3 serverboundProtocol
-		ARG 4 clientbountProtocol
+		ARG 4 clientboundProtocol
 		ARG 5 packetListener
 		ARG 6 isTransfer
 	METHOD initiateServerboundPlayConnection (Ljava/lang/String;ILnet/minecraft/network/protocol/login/ClientLoginPacketListener;)V
