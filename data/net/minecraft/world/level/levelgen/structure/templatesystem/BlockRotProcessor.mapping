@@ -2,8 +2,8 @@ CLASS net/minecraft/world/level/levelgen/structure/templatesystem/BlockRotProces
 	METHOD <init> (F)V
 		ARG 1 integrity
 	METHOD <init> (Ljava/util/Optional;F)V
-		ARG 1 rottableBlocks
+		ARG 1 rotatableBlocks
 		ARG 2 integrity
 	METHOD <init> (Lnet/minecraft/core/HolderSet;F)V
-		ARG 1 rottableBlocks
+		ARG 1 rotatableBlocks
 		ARG 2 integrity
