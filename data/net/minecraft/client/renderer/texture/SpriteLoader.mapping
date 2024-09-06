@@ -27,7 +27,7 @@ CLASS net/minecraft/client/renderer/texture/SpriteLoader
 	METHOD lambda$stitch$1 (ILnet/minecraft/client/renderer/texture/TextureAtlasSprite;)V
 		ARG 1 sprite
 	METHOD loadAndStitch (Lnet/minecraft/server/packs/resources/ResourceManager;Lnet/minecraft/resources/ResourceLocation;ILjava/util/concurrent/Executor;)Ljava/util/concurrent/CompletableFuture;
-		ARG 1 resouceManager
+		ARG 1 resourceManager
 		ARG 2 location
 		ARG 3 mipLevel
 		ARG 4 executor
