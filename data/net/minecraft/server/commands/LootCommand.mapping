@@ -40,7 +40,7 @@ CLASS net/minecraft/server/commands/LootCommand
 	METHOD dropChestLoot (Lcom/mojang/brigadier/context/CommandContext;Lnet/minecraft/core/Holder;Lnet/minecraft/server/commands/LootCommand$DropConsumer;)I
 		ARG 0 context
 		ARG 1 lootTable
-		ARG 2 dropCOnsimer
+		ARG 2 dropConsumer
 	METHOD dropFishingLoot (Lcom/mojang/brigadier/context/CommandContext;Lnet/minecraft/core/Holder;Lnet/minecraft/core/BlockPos;Lnet/minecraft/world/item/ItemStack;Lnet/minecraft/server/commands/LootCommand$DropConsumer;)I
 		ARG 0 context
 		ARG 1 lootTable
