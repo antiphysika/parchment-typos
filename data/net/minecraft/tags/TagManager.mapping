@@ -6,7 +6,7 @@ CLASS net/minecraft/tags/TagManager
 		ARG 2 backgroundExecutor
 		ARG 3 entry
 	METHOD lambda$reload$0 (Lnet/minecraft/server/packs/resources/ResourceManager;Ljava/util/concurrent/Executor;Lnet/minecraft/core/RegistryAccess$RegistryEntry;)Ljava/util/concurrent/CompletableFuture;
-		ARG 3 regustry
+		ARG 3 registry
 	METHOD lambda$reload$2 (Ljava/util/List;Ljava/lang/Void;)V
 		ARG 2 result
 	METHOD reload (Lnet/minecraft/server/packs/resources/PreparableReloadListener$PreparationBarrier;Lnet/minecraft/server/packs/resources/ResourceManager;Lnet/minecraft/util/profiling/ProfilerFiller;Lnet/minecraft/util/profiling/ProfilerFiller;Ljava/util/concurrent/Executor;Ljava/util/concurrent/Executor;)Ljava/util/concurrent/CompletableFuture;
