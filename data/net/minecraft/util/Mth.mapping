@@ -341,7 +341,7 @@ CLASS net/minecraft/util/Mth
 		ARG 2 maxDifference
 	METHOD rotationAroundAxis (Lorg/joml/Vector3f;Lorg/joml/Quaternionf;Lorg/joml/Quaternionf;)Lorg/joml/Quaternionf;
 		ARG 0 axis
-		ARG 1 cameraOrentation
+		ARG 1 cameraOrientation
 		ARG 2 output
 	METHOD roundToward (II)I
 		COMMENT Rounds the given value up to a multiple of factor.
